@@ -38,20 +38,13 @@ class DiggerCustomizer : DCustomizer
 			d.log("First run detected.\nPlease be patient, " ~
 				"cloning everything might take a few minutes...\n");
 
-		if (needUpdate && update)
-		{
-			super.initialize(true);
-			needUpdate = false;
-		}
-		else
-			super.initialize(false);
 	}
 
 	/// Build the customized D version.
 	/// The result will be in resultDir.
-	void runBuild(BuildConfig buildConfig)
+	void runBuild(Buildconfig2 buildconfig2)
 	{
-		d.config.build = buildConfig;
+		d.config2.build = buildconfig2;
 		d.build();
 
 		d.log("Moving...");
